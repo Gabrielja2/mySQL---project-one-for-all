@@ -18,6 +18,7 @@ CREATE TABLE usuario (
   nome__usuario VARCHAR(45) NOT NULL,
   idade__usuario INT NOT NULL,
   id__plano INT NOT NULL,
+  data__assinatura DATE NOT NULL,
   FOREIGN KEY (id__plano) REFERENCES plano(id__plano)
 ) engine = InnoDB;
 
@@ -60,44 +61,44 @@ CREATE TABLE historico_reproducoes (
 
 INSERT INTO SpotifyClone.plano (nome__plano, valor__plano)
   VALUES
-    ('gratuito', 0),
-    ('familiar', 7.99),
+    ('gratuito', 0.00),
     ('universitario', 5.99),
-    ('pessoal', 6.99);
+    ('pessoal', 6.99),
+    ('familiar', 7.99);
 
 INSERT INTO SpotifyClone.artista (nome__artista)
   VALUES
     ('Beyoncé'),
-    ('Queen'),
     ('Elis Regina'),
     ('Baco Exu do Blues'),
     ('Blind Guardian'),
-    ('Nina Simone');
+    ('Nina Simone'),
+    ('Queen');
 
-INSERT INTO SpotifyClone.usuario (nome__usuario, idade__usuario, id__plano)
+INSERT INTO SpotifyClone.usuario (nome__usuario, idade__usuario, id__plano, data__assinatura)
   VALUES
-    ('Barbara Liskov', 82, 1),
-    ('Robert Cecil Martin', 58, 1),
-    ('Ada LovelaceAda Lovelace', 37, 2),
-    ('Martin Fowler', 46, 2),
-    ('Sandi Metz', 58, 2),
-    ('Paulo Freire', 19, 3),
-    ('Bell Hooks', 26, 3),
-    ('Christopher Alexander', 85, 4),
-    ('Judith Butler', 45, 4),
-    ('Jorge Amado', 58, 4);
+    ('Barbara Liskov', 82, 1, '2019-10-20'),
+    ('Robert Cecil Martin', 58, 1, '2017-01-06'),
+    ('Ada LovelaceAda Lovelace', 37, 4, '2017-12-30'),
+    ('Martin Fowler', 46, 4, '2017-01-17'),
+    ('Sandi Metz', 58, 4, '2018-04-29'),
+    ('Paulo Freire', 19, 2, '2018-02-14'),
+    ('Bell Hooks', 26, 2, '2018-01-05'),
+    ('Christopher Alexander', 85, 3, '2019-06-05'),
+    ('Judith Butler', 45, 3, '2020-05-13'),
+    ('Jorge Amado', 58, 3, '2017-02-17');
 
 
 INSERT INTO SpotifyClone.album (nome__album, id__artista, ano__lancamento)
   VALUES
     ('Renaissance', 1, 2022),
-    ('Jazz', 2, 1978),
-    ('Hot Space', 2, 1982),
-    ('Falso Brilhante', 3, 1998),
-    ('Vento de Maio', 3, 2001),
-    ('QVVJFA?', 4, 2003),
-    ('Somewhere Far Beyond', 5, 2007),
-    ('I Put A Spell On You', 6, 2012);
+    ('Jazz', 6, 1978),
+    ('Hot Space', 6, 1982),
+    ('Falso Brilhante', 2, 1998),
+    ('Vento de Maio', 2, 2001),
+    ('QVVJFA?', 3, 2003),
+    ('Somewhere Far Beyond', 4, 2007),
+    ('I Put A Spell On You', 5, 2012);
 
 INSERT INTO SpotifyClone.cancao (nome__cancao, duracao_cancao_in_seconds, id__album, id__artista)
   VALUES
